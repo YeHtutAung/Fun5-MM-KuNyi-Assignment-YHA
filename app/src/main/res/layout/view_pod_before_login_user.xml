@@ -1,8 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.assignment.ideapro.mm.kunyi.views.pods.BeforeLoginUserViewPod xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="220dp">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/dummy_news_02" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#A000" />
 
-</RelativeLayout>
+    <org.mmtextview.components.MMButton
+        android:id="@+id/btnRegister"
+        style="@style/AccentButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="@dimen/margin_medium"
+        android:layout_marginRight="@dimen/margin_medium"
+        android:text="@string/lbl_register" />
+
+    <Button
+        android:id="@+id/btnLogin"
+        style="@style/AccentButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/btnRegister"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/margin_large"
+        android:text="@string/lbl_login" />
+
+</com.assignment.ideapro.mm.kunyi.views.pods.BeforeLoginUserViewPod>

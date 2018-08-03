@@ -6,20 +6,97 @@
     android:layout_marginRight="@dimen/margin_medium_2"
     android:layout_marginTop="@dimen/margin_medium_2">
 
-    <RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white_full">
+
         <org.mmtextview.components.MMTextView
-            android:id="@+id/tvBriefNews"
-            android:layout_width="match_parent"
+            android:id="@+id/tvJobTitle"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin_medium"
-            android:layout_marginRight="@dimen/margin_medium"
-            android:layout_marginTop="@dimen/margin_medium_n"
-            android:ellipsize="end"
-            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:text="Housekeeping"
             android:lineSpacingMultiplier="1.3"
-            android:maxLines="8"
-            android:text="Hello World"
+            android:textSize="@dimen/text_heading_1x"
+            android:textStyle="bold" />
+
+        <org.mmtextview.components.MMTextView
+            android:id="@+id/tvOfferAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$200"
+            android:layout_alignTop="@id/tvJobTitle"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_marginRight="@dimen/margin_medium"/>
+
+        <org.mmtextview.components.MMTextView
+            android:id="@+id/tvJobDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvJobTitle"
+            android:layout_marginLeft="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:text="Teach English speaking with short time period for business purpose"
             android:textColor="@color/colorPrimaryText" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/tvJobDescription"
+            android:layout_marginLeft="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:weightSum="6">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_weight="0.5"
+                android:src="@drawable/ic_access_time_black_24dp"/>
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/tvPaymentTerm"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="300 Hours"
+                android:layout_weight="1.5"/>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_weight="0.5"
+                android:src="@drawable/ic_location_on_black_24dp"/>
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/tvWorkLocation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Pazundaung"
+                android:layout_weight="2.5"/>
+
+            <Button
+                android:id="@+id/btnApply"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/rounded_button"
+                android:elevation="@dimen/margin_medium"
+                android:minHeight="25dp"
+                android:paddingBottom="3dp"
+                android:text="Apply"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:clickable="true"
+                android:foreground="@drawable/ripple_btn"
+                android:textColor="@color/colorPrimaryText"
+                android:layout_weight="1"
+                android:layout_marginRight="@dimen/margin_medium"/>
+
+        </LinearLayout>
+
     </RelativeLayout>
 
 
