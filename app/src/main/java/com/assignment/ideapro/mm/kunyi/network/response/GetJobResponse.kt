@@ -18,7 +18,7 @@ class GetJobResponse {
     @SerializedName("page")
     private val pageNo: Int = 0
 
-    @SerializedName("mmNews")
+    @SerializedName("jobs")
     private var jobList: List<JobsVO>? = null
 
     fun getCode(): Int {
@@ -39,7 +39,7 @@ class GetJobResponse {
 
     fun getJobList(): List<JobsVO> {
         if (jobList == null) {
-            jobList = ArrayList<JobsVO>()
+            jobList = ArrayList()
         }
         val newsListVal = jobList
         return newsListVal!!

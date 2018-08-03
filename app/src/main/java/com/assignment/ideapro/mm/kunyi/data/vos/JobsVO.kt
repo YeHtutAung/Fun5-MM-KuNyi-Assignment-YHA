@@ -2,10 +2,31 @@ package com.assignment.ideapro.mm.kunyi.data.vos
 
 import com.google.gson.annotations.SerializedName
 
-class JobsVO {
+open class JobsVO(applicants: List<ApplicantVO>? = ArrayList(),
+             availablePostCount: Int = 1,
+             email: String = "",
+             fullDesc: String = "",
+             genderForJob: Int = 0,
+             images: List<String>? = ArrayList(),
+             importantNotes: List<String>? = ArrayList(),
+             interesteds: List<InterestedVO>? = ArrayList(),
+             isActive: Boolean = false,
+             jobDuration: JobDurationVO? = null,
+             jobPostId: Int = 1,
+             jobTags: List<JobTagsVO>? = ArrayList(),
+             location: String = "",
+             makeMoneyRating: Int = 1,
+             offerAmount: OfferAmount? = null,
+             phoneNo: String = "",
+             postClosedDate: String = "",
+             postedDate: String = "",
+             relevants: List<RelevantVO>? = ArrayList(),
+             requiredSkill: List<SeekerSkillVO>? = ArrayList(),
+             shortDesc: String = "",
+             vieweds: List<SeekerVO>? = ArrayList()) {
 
     @SerializedName("applicant")
-    var applicants: List<ApplicantVO>? = ArrayList()
+    open var applicants: List<ApplicantVO>? = applicants
         get() {
             return if (field == null)
                 ArrayList()
@@ -14,19 +35,19 @@ class JobsVO {
         }
 
     @SerializedName("availablePostCount")
-    val availablePostCount: Int = 1
+    val availablePostCount: Int = availablePostCount
 
     @SerializedName("email")
-    val email: String = ""
+    val email: String = email
 
     @SerializedName("fullDesc")
-    val fullDesc: String = ""
+    val fullDesc: String = fullDesc
 
     @SerializedName("genderForJob")
-    val genderForJob: Int = 0
+    val genderForJob: Int = genderForJob
 
     @SerializedName("images")
-    val images: List<String>? = ArrayList()
+    val images: List<String>? = images
         get() {
             return if (field == null)
                 ArrayList()
@@ -35,7 +56,7 @@ class JobsVO {
         }
 
     @SerializedName("importantNotes")
-    val importantNotes: List<String>? = ArrayList()
+    val importantNotes: List<String>? = importantNotes
         get() {
             return if (field == null)
                 ArrayList()
@@ -44,7 +65,7 @@ class JobsVO {
         }
 
     @SerializedName("interested")
-    val interesteds: List<InterestedVO>? = ArrayList()
+    val interesteds: List<InterestedVO>? = interesteds
         get() {
             return if (field == null)
                 ArrayList()
@@ -53,37 +74,43 @@ class JobsVO {
         }
 
     @SerializedName("isActive")
-    val isActive: Boolean = false
+    val isActive: Boolean = isActive
 
     @SerializedName("jobDuration")
-    val jobDuration: JobDurationVO? = null
+    val jobDuration: JobDurationVO? = jobDuration
 
     @SerializedName("jobPostId")
-    val jobPostId: Int = 1
+    val jobPostId: Int = jobPostId
 
     @SerializedName("jobTags")
-    val jobTags: JobTagsVO? = null
+    val jobTags: List<JobTagsVO>? = jobTags
+        get() {
+            return if (field == null)
+                ArrayList()
+            else
+                field
+        }
 
     @SerializedName("location")
-    val location: String = ""
+    val location: String = location
 
     @SerializedName("makeMoneyRating")
-    val makeMoneyRating : Int = 1
+    val makeMoneyRating: Int = makeMoneyRating
 
     @SerializedName("offerAmount")
-    val offerAmount : OfferAmount? = null
+    val offerAmount: OfferAmount? = offerAmount
 
     @SerializedName("phoneNo")
-    val phoneNo : String = ""
-
-    @SerializedName("applicant")
-    val postClosedDate : String = ""
+    val phoneNo: String = phoneNo
 
     @SerializedName("postClosedDate")
-    val postedDate : String = ""
+    val postClosedDate: String = postClosedDate
+
+    @SerializedName("postedDate")
+    val postedDate: String = postedDate
 
     @SerializedName("relevant")
-    val relevants : List<RelevantVO>? = ArrayList()
+    val relevants: List<RelevantVO>? = relevants
         get() {
             return if (field == null)
                 ArrayList()
@@ -92,7 +119,7 @@ class JobsVO {
         }
 
     @SerializedName("requiredSkill")
-    val requiredSkill:List<SeekerSkillVO>? = ArrayList()
+    val requiredSkill: List<SeekerSkillVO>? = requiredSkill
         get() {
             return if (field == null)
                 ArrayList()
@@ -101,8 +128,14 @@ class JobsVO {
         }
 
     @SerializedName("shortDesc")
-    val shortDesc : String = ""
+    val shortDesc: String = shortDesc
 
     @SerializedName("viewed")
-    val vieweds : SeekerVO? = null
+    val vieweds: List<SeekerVO>? = vieweds
+        get() {
+            return if (field == null)
+                ArrayList()
+            else
+                field
+        }
 }

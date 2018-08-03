@@ -27,7 +27,7 @@ class JobDataAgent {
         }
     }
 
-    private val mNewsApi: JobApi
+    private val mJobApi: JobApi
 
     private constructor() {
         val okHttpClient = OkHttpClient.Builder()
@@ -37,17 +37,17 @@ class JobDataAgent {
                 .build()
 
         val retrofit = Retrofit.Builder()
-                .baseUrl("http://padcmyanmar.com/padc-3/mm-news/apis/")
+                .baseUrl("http://padcmyanmar.com/padc-3/final-projects/one-time-jobs/")
                 .addConverterFactory(GsonConverterFactory.create(Gson()))
                 .client(okHttpClient)
                 .build()
 
-        mNewsApi = retrofit.create(JobApi::class.java)
+        mJobApi = retrofit.create(JobApi::class.java)
     }
 
-    fun loadNews(accessToken: String, page: Int) {
-        val newsResponseCall = mNewsApi.loadJob(page, accessToken)
-        newsResponseCall.enqueue(object : Callback<GetJobResponse> {
+    fun loadJobs(accessToken: String, page: Int) {
+        val jobResponseCall = mJobApi.loadJob(page, accessToken)
+        jobResponseCall.enqueue(object : Callback<GetJobResponse> {
             override fun onFailure(call: Call<GetJobResponse>?, t: Throwable?) {
                 EventBus.getDefault().post(ErrorEvent.ApiErrorEvent(t))
             }
@@ -57,8 +57,8 @@ class JobDataAgent {
                 if (jobResponse != null
                         && jobResponse.getCode() == 200
                         && jobResponse.getJobList().isNotEmpty()) {
-                    val newsLoadedEvent = DataEvent.JobLoadedEvent(jobResponse.getPageNo(), jobResponse.getJobList())
-                    EventBus.getDefault().post(newsLoadedEvent)
+                    val jobLoadedEvent = DataEvent.JobLoadedEvent(jobResponse.getPageNo(), jobResponse.getJobList())
+                    EventBus.getDefault().post(jobLoadedEvent)
                 } else {
                     if(jobResponse != null)
                         EventBus.getDefault().post(DataEvent.EmptyDataLoadedEvent(jobResponse.getMessage()))

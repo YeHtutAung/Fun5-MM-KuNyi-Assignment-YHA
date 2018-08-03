@@ -8,10 +8,14 @@ import android.view.MenuItem
 import com.assignment.ideapro.mm.kunyi.R
 import com.assignment.ideapro.mm.kunyi.adapters.JobAdapter
 import com.assignment.ideapro.mm.kunyi.components.SmartScrollListener
+import com.assignment.ideapro.mm.kunyi.data.models.JobFinderAppModel
 import com.assignment.ideapro.mm.kunyi.data.vos.JobsVO
 import com.assignment.ideapro.mm.kunyi.delegates.JobItemDelegate
-
+import com.assignment.ideapro.mm.kunyi.events.DataEvent
+import com.assignment.ideapro.mm.kunyi.events.ErrorEvent
 import kotlinx.android.synthetic.main.activity_main.*
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
 
 class MainActivity : BaseActivity(), JobItemDelegate {
     override fun onTapApply() {
@@ -59,12 +63,12 @@ class MainActivity : BaseActivity(), JobItemDelegate {
         rvJobItems.adapter = jobAdapter
 
         swipeRefreshLayout.isRefreshing = true
-        // NewsAppModel.getInstance().loadNews()
+        JobFinderAppModel.getInstance().loadJobs()
 
         swipeRefreshLayout.setOnRefreshListener {
             val newsAdapterVal = jobAdapter
             newsAdapterVal!!.clearData()
-            // NewsAppModel.getInstance().forceLoadNews()
+            JobFinderAppModel.getInstance().loadJobs()
         }
     }
 
@@ -84,5 +88,25 @@ class MainActivity : BaseActivity(), JobItemDelegate {
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun onNewsLoadedEvent(newsLoadedEvent: DataEvent.JobLoadedEvent) {
+        swipeRefreshLayout.isRefreshing = false
+        jobAdapter!!.appendNewData(newsLoadedEvent.loadedJob as MutableList<JobsVO>)
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun onErrorNewsLoadedEvent(apiErrorEvent: ErrorEvent.ApiErrorEvent) {
+        swipeRefreshLayout.isRefreshing = false
+        Snackbar.make(rvJobItems, "ERROR : " + apiErrorEvent.getMsg(), Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show()
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun onEmptyNewsLoadedEvent(emptyDataLoadedEvent: DataEvent.EmptyDataLoadedEvent) {
+        swipeRefreshLayout.isRefreshing = false
+        Snackbar.make(rvJobItems, "ERROR : " + emptyDataLoadedEvent.errorMsg, Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show()
     }
 }
