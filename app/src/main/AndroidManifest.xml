@@ -22,6 +22,9 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".activities.JobDetailsActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".activities.AccountControlActivity"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>

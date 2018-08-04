@@ -110,6 +110,12 @@ class MainActivity : BaseActivity(), JobItemDelegate, BeforeLoginDelegate {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
+
+        if (item.itemId == android.R.id.home) {
+            drawerLayout.openDrawer(GravityCompat.END)
+            return true
+        }
+
         return when (item.itemId) {
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
@@ -125,7 +131,8 @@ class MainActivity : BaseActivity(), JobItemDelegate, BeforeLoginDelegate {
     }
 
     override fun onTapJob(news: JobsVO?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val intent = Intent(applicationContext, JobDetailsActivity::class.java)
+        startActivity(intent)
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)

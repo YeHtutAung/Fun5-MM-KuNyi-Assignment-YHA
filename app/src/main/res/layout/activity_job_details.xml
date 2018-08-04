@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="256dp"
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <ImageView
+                android:id="@+id/ivBanner"
+                android:layout_width="match_parent"
+                android:layout_height="226dp"
+                android:background="?attr/colorPrimary"
+                android:fitsSystemWindows="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg_job" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:background="#48000000" />
+
+            <android.support.v7.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin" />
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <org.mmtextview.components.MMTextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/lblJobTitle"
+                    android:text="Job Title : "
+                    android:layout_marginTop="@dimen/margin_medium_2"
+                    android:layout_marginLeft="@dimen/margin_medium_2"/>
+
+                <org.mmtextview.components.MMTextView
+                    android:id="@+id/tvJobTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Housekeeping"
+                    android:layout_alignTop="@id/lblJobTitle"
+                    android:layout_toRightOf="@id/lblJobTitle"
+                    android:layout_marginRight="@dimen/margin_medium_2"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <org.mmtextview.components.MMTextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/lblLocation"
+                    android:text="Location : "
+                    android:layout_marginTop="@dimen/margin_medium_2"
+                    android:layout_marginLeft="@dimen/margin_medium_2"/>
+
+                <org.mmtextview.components.MMTextView
+                    android:id="@+id/tvLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Thingangyun"
+                    android:layout_alignTop="@id/lblLocation"
+                    android:layout_toRightOf="@id/lblLocation"
+                    android:layout_marginRight="@dimen/margin_medium_2"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <org.mmtextview.components.MMTextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/lblPayment"
+                    android:text="Payment : "
+                    android:layout_marginTop="@dimen/margin_medium_2"
+                    android:layout_marginLeft="@dimen/margin_medium_2"/>
+
+                <org.mmtextview.components.MMTextView
+                    android:id="@+id/tvPayment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20,000 MMK"
+                    android:layout_alignTop="@id/lblPayment"
+                    android:layout_toRightOf="@id/lblPayment"
+                    android:layout_marginRight="@dimen/margin_medium_2"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <org.mmtextview.components.MMTextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/lblPeriod"
+                    android:text="Period : "
+                    android:layout_marginTop="@dimen/margin_medium_2"
+                    android:layout_marginLeft="@dimen/margin_medium_2"/>
+
+                <org.mmtextview.components.MMTextView
+                    android:id="@+id/tvPeriod"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="300 Hours"
+                    android:layout_alignTop="@id/lblPeriod"
+                    android:layout_toRightOf="@id/lblPeriod"
+                    android:layout_marginRight="@dimen/margin_medium_2"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <org.mmtextview.components.MMTextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/lblVacancy"
+                    android:text="Vacancy : "
+                    android:layout_marginTop="@dimen/margin_medium_2"
+                    android:layout_marginLeft="@dimen/margin_medium_2"/>
+
+                <org.mmtextview.components.MMTextView
+                    android:id="@+id/tvVacancy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3 post available"
+                    android:layout_alignTop="@id/lblVacancy"
+                    android:layout_toRightOf="@id/lblVacancy"
+                    android:layout_marginRight="@dimen/margin_medium_2"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <org.mmtextview.components.MMTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/lblJobDescription"
+                    android:text="Job Description"
+                    android:layout_marginTop="@dimen/margin_medium_2"
+                    android:layout_marginLeft="@dimen/margin_medium_2"/>
+
+                <org.mmtextview.components.MMTextView
+                    android:id="@+id/tvJobDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Teach English speaking with short time period for business purpose"
+                    android:layout_below="@id/lblJobDescription"
+                    android:layout_marginTop="@dimen/margin_medium_2"
+                    android:layout_marginLeft="@dimen/margin_medium_2"/>
+
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/btnApply"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/rounded_button"
+                android:elevation="@dimen/margin_medium"
+                android:minHeight="25dp"
+                android:paddingBottom="3dp"
+                android:text="Apply"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:clickable="true"
+                android:foreground="@drawable/ripple_btn"
+                android:textColor="@color/colorPrimaryText"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:layout_marginRight="@dimen/margin_medium_2"
+                android:layout_marginLeft="@dimen/margin_medium_2"/>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.design.widget.CoordinatorLayout>

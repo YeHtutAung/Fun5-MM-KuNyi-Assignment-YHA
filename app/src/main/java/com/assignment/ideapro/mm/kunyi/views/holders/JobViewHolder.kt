@@ -24,7 +24,7 @@ class JobViewHolder(itemView: View, private val mJobItemDelegate: JobItemDelegat
     }
 
     override fun onClick(v: View?) {
-//        mJobItemDelegate.onTapJob(mData)
+        mJobItemDelegate.onTapJob(mData)
         Snackbar.make(itemView, "Go To Details Page", Snackbar.LENGTH_LONG).show()
     }
 }
